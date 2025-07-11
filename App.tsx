@@ -1,4 +1,3 @@
-import React from 'react';
 import DockerTerminal from './components/DockerTerminal';
 
 function App() {
