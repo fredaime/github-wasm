@@ -1,0 +1,16 @@
+{
+  "name": "docker-terminal-backend",
+  "version": "1.0.0",
+  "description": "Backend for executing real Docker commands for the web terminal.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "node-pty": "^1.0.0",
+    "ws": "^8.17.0"
+  }
+}

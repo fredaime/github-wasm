@@ -1,0 +1,5 @@
+{
+  "name": "Real Docker Terminal",
+  "description": "An interactive web application that uses a backend service to execute real Docker build and run commands on the host machine.",
+  "requestFramePermissions": []
+}
