@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import type { FormEvent } from 'react';
 import { ContainerStatus, LogType } from '../types';
 import type { LogEntry } from '../types';
 
@@ -149,7 +150,7 @@ export default function DockerTerminal() {
         setStatus(ContainerStatus.BUILD_SUCCESS);
     }, []);
     
-    const handleCommandSubmit = (e: React.FormEvent) => {
+    const handleCommandSubmit = (e: FormEvent) => {
         e.preventDefault();
         if (!command.trim() || !ws.current || ws.current.readyState !== WebSocket.OPEN) return;
         

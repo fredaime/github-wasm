@@ -682,7 +682,7 @@ body {
         (src_dir / "index.css").write_text(index_css)
 
         # Enhanced App.tsx with login
-        app_content = '''import React, { useState } from 'react';
+        app_content = '''import { useState } from 'react';
 import DockerTerminal from './components/DockerTerminal';
 import Login from './components/Login';
 
@@ -746,7 +746,8 @@ export default App;
         components_dir.mkdir(exist_ok=True)
 
         # Login component
-        login_content = '''import React, { useState } from 'react';
+        login_content = '''import { useState } from 'react';
+import type { FormEvent } from 'react';
 
 interface LoginProps {
   onLogin: (token: string) => void;
@@ -758,7 +759,7 @@ export default function Login({ onLogin }: LoginProps) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
@@ -843,7 +844,8 @@ export default function Login({ onLogin }: LoginProps) {
         (components_dir / "Login.tsx").write_text(login_content)
 
         # Enhanced DockerTerminal component
-        docker_terminal_content = '''import React, { useState, useRef, useEffect, useCallback } from 'react';
+        docker_terminal_content = '''import { useState, useRef, useEffect, useCallback } from 'react';
+import type { FormEvent } from 'react';
 
 interface DockerTerminalProps {
   token: string;
@@ -1013,7 +1015,7 @@ export default function DockerTerminal({ token }: DockerTerminalProps) {
     setStatus(ContainerStatus.BUILD_SUCCESS);
   }, [addLog]);
 
-  const handleCommandSubmit = (e: React.FormEvent) => {
+  const handleCommandSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!command.trim() || !ws.current || ws.current.readyState !== WebSocket.OPEN) return;
 
